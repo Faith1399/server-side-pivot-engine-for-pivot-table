@@ -12,7 +12,6 @@ namespace PivotController.Controllers
     {
         private readonly IMemoryCache _cache;
         private bool isRendered;
-        
         private PivotEngine<DataSource.PivotViewData> PivotEngine = new PivotEngine<DataSource.PivotViewData>();
         private ExcelExport excelExport = new ExcelExport();
         private PivotExportEngine<DataSource.PivotViewData> pivotExport = new PivotExportEngine<DataSource.PivotViewData>();
