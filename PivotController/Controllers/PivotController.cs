@@ -133,6 +133,10 @@ namespace PivotController.Controllers
         private async Task<object> GetPivotValues(FetchData param)
         {
             EngineProperties engine = await GetEngine(param).ConfigureAwait(false);
+            if (param.IsGroupingUpdated)
+            {
+                engine.Data = await GetData(param).ConfigureAwait(false);
+            }
             if (!isRendered)
             {
                 engine = await PivotEngine.PerformAction(engine, param).ConfigureAwait(false);
